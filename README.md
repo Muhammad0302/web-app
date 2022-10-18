@@ -4,4 +4,5 @@
 
 React application that will allow users to find parking spots.
 
-Currently, this app is being hosted using GitHub pages.
+Currently, this app is being hosted using GitHub pages. Here is the guide I followed:
+https://dev.to/dyarleniber/setting-up-a-ci-cd-workflow-on-github-actions-for-a-react-app-with-github-pages-and-codecov-4hnp
