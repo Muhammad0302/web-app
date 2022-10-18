@@ -3,16 +3,14 @@ import './App.css';
 import io from "socket.io-client";
 import React, { useEffect, useState } from "react";
 
-// const server_url = "https://d9d1c1ba79942c4b65d9679f8af28998.balena-devices.com:3001";
-const server_url = "http://192.168.178.150:3001";
+const server_url = "http://172.104.156.241:3001";
 
 
 function App() {
   const [status1, setStatus1] = useState(false)
   const [status2, setStatus2] = useState(false)
   const [status3, setStatus3] = useState(false)
-  const [url, setUrl] = useState(true)
-  const socket = io.connect(server_url);
+  const socket = io.connect(server_url)
 
   /**
    * "status_update" event comes with following data:
