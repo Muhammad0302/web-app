@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     socket.on("status_update", (data) => {
       const { sensor_id, sensor_status } = data
-      const status = sensor_status != "false"
+      const status = sensor_status !== "false"
 
       if (sensor_id === "prototype_01") {
         setStatus1(status)
