@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Status from './components/Status';
 
 
-const server_url = "http://172.104.156.241:3001";
+const server_url = "https://spot-api-heroku.herokuapp.com/";
 
 function App() {
   const [status1, setStatus1] = useState(true)
