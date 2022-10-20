@@ -5,15 +5,13 @@ import React, { useEffect, useState } from "react";
 import Status1 from './components/Status1';
 
 
-const server_url = "http://192.168.178.150:3001";
-
+const server_url = "http://172.104.156.241:3001";
 
 function App() {
   const [status1, setStatus1] = useState(false)
   const [status2, setStatus2] = useState(false)
   const [status3, setStatus3] = useState(false)
-  const [url, setUrl] = useState(true)
-  const socket = io.connect(server_url);
+  const socket = io.connect(server_url)
 
   /**
    * "status_update" event comes with following data:
@@ -24,7 +22,7 @@ function App() {
   useEffect(() => {
     socket.on("status_update", (data) => {
       const { sensor_id, sensor_status } = data
-      const status = sensor_status != "false"
+      const status = sensor_status !== "false"
 
       if (sensor_id === "prototype_01") {
         setStatus1(status)
