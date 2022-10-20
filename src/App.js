@@ -2,9 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import io from "socket.io-client";
 import React, { useEffect, useState } from "react";
+import Status1 from './components/Status1';
+
 
 const server_url = "http://172.104.156.241:3001";
-
 
 function App() {
   const [status1, setStatus1] = useState(false)
@@ -49,9 +50,8 @@ function App() {
     <div>
       <div>
         <h1> Status</h1>
-        {status1 && "Spot 1"}<br />
-        {status2 && "Spot 2"}<br />
-        {status3 && "Spot 3"}<br />
+         <Status1 status={status1}/> 
+        
       </div>
       <div className="App">
         <header className="App-header">
