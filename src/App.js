@@ -9,8 +9,8 @@ const server_url = "http://172.104.156.241:3001";
 
 function App() {
   const [status1, setStatus1] = useState(false)
-  const [status2, setStatus2] = useState(false)
-  const [status3, setStatus3] = useState(false)
+  // const [status2, setStatus2] = useState(false)
+  // const [status3, setStatus3] = useState(false)
   const socket = io.connect(server_url)
 
   /**
@@ -28,10 +28,10 @@ function App() {
         setStatus1(status)
       }
       else if (sensor_id === "prototype_02") {
-        setStatus2(status)
+        // setStatus2(status)
       }
       else if (sensor_id === "prototype_03") {
-        setStatus3(status)
+        // setStatus3(status)
       } else {
         console.log("unexpected sensor id")
       }
