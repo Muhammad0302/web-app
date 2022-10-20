@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import React, { useEffect, useState } from "react";
 import Status1 from './components/Status1';
 
-// const server_url = "https://d9d1c1ba79942c4b65d9679f8af28998.balena-devices.com:3001";
+
 const server_url = "http://192.168.178.150:3001";
 
 
