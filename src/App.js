@@ -20,8 +20,11 @@ function App() {
 
   useEffect(() => {
     socket.on("status_update", (data) => {
-      const { sensor_id, sensor_status } = data
-
+      let { sensor_id, sensor_status } = data
+      if (typeof (sensor_status) == "string") {
+        sensor_status = sensor_status === "true"
+      }
+      console.log(data)
       if (sensor_id === "prototype_01") {
         setStatus1(sensor_status)
       }
