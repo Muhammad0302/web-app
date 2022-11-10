@@ -8,7 +8,7 @@ const server_url = "https://spot-api-heroku.herokuapp.com/";
 
 function App() {
   const [status1, setStatus1] = useState(true)
-  const [status2, setStatus2] = useState(true)
+  const [status2, setStatus2] = useState(false)
   const [status3, setStatus3] = useState(true)
   const socket = io.connect(server_url)
 
@@ -47,10 +47,9 @@ function App() {
   return (
     <div>
       <div>
-        <h1> Statuses</h1>
-        <Status status={status1} name="Sensor 1" />
-        <Status status={status2} name="Sensor 2" />
-        <Status status={status3} name="Sensor 3" />
+        <h1> SpotTroop GbR</h1>
+        <Status status1={status1} status2={status2} status3={status3} name1="Sensor 1" name2="Sensor 2" name3="Sensor 3" />
+
       </div>
     </div>
   );

@@ -1,0 +1,13 @@
+
+table {
+    padding:20px 80px;
+    color:gray;
+    font-weight: 500;
+}
+th{
+    padding:10px 15px 20px 100px;   
+    font-weight: 500;
+}
+td{
+    padding:10px 15px 20px 100px;
+}
