@@ -1,0 +1,24 @@
+{
+    "env": {
+        "browser": true,  
+        "es6": true,      
+        "jest": true      
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            2
+        ],  
+        "react/jsx-equals-spacing": [
+            2,
+            "never"
+        ],
+    }
+}
