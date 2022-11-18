@@ -6,7 +6,7 @@ function Status1({ status, name }) {
   return (
 
     <>
-      <div>
+      
         
               <td>{name}</td>
               <td><div className='circle-color' style={{
@@ -17,7 +17,7 @@ function Status1({ status, name }) {
             
               
            
-      </div>
+      
       
     </>
   )

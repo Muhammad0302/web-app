@@ -49,12 +49,15 @@ function App() {
       <div>
         <h1> SpotTroop GbR</h1>
         <table>
-          <thead>
+          
+            <tr>
             <th>Sensor ID</th>
             <th>Status</th>
-          </thead>
-          <tbody>
-            <tr>
+            </tr>
+            
+         
+          
+            <tr> 
             <Status status={status1} name="Sensor 1" />
 
             </tr>
@@ -66,7 +69,7 @@ function App() {
             <Status status={status3} name="Sensor 3" />
 
             </tr>
-          </tbody>
+          
         </table>
       </div>
     </div>

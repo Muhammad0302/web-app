@@ -1,9 +1,7 @@
 
 
 h1 {
-   
+  padding-left:100px;
   text-decoration: underline;
 }
-tbody tr {
-  padding-left: 100px;
-}
+

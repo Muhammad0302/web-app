@@ -1,9 +1,9 @@
 
 table {
-   
+   padding-left: 100px;
     color:gray;
     font-weight: 500;
 }
-tr {
-    padding: 100px;
+tr, td, th{
+    padding: 20px;
   }
