@@ -7,6 +7,7 @@ import Status from './components/Status';
 const server_url = "https://spot-api-heroku.herokuapp.com/";
 
 function App() {
+  // TODO: change these status to contain location information  
   const [status1, setStatus1] = useState(true)
   const [status2, setStatus2] = useState(false)
   const [status3, setStatus3] = useState(true)
