@@ -1,5 +1,7 @@
 import React from 'react'
 import './status.css';
+import PropTypes from 'prop-types'
+ 
 
 function Status1({ status, name }) {
 
@@ -18,3 +20,14 @@ function Status1({ status, name }) {
 }
 
 export default Status1
+
+Status1.propTypes={
+  
+  name:PropTypes.string,
+  status:PropTypes.bool
+}
+
+Status1.defaultProps = {
+  name: "Sensor N",
+  status: true
+}
