@@ -7,3 +7,10 @@ table {
 tr, td, th{
     padding: 20px;
   }
+
+
+ /* adding styling to map */
+ .leaflet-container {
+  width: 100%;
+  height: 50vh;
+}
