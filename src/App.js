@@ -1,17 +1,16 @@
-import './App.css';
+import "./App.css";
 import io from "socket.io-client";
 import React, { useEffect, useState } from "react";
-import Status from './components/Status';
-
-
+import Status from "./components/Status";
+import { Mymap } from "./components/Mymap";
 const server_url = "https://spot-api-heroku.herokuapp.com/";
 
 function App() {
-  // TODO: change these status to contain location information  
-  const [status1, setStatus1] = useState(true)
-  const [status2, setStatus2] = useState(false)
-  const [status3, setStatus3] = useState(true)
-  const socket = io.connect(server_url)
+  // TODO: change these status to contain location information
+  const [status1, setStatus1] = useState(true);
+  const [status2, setStatus2] = useState(false);
+  const [status3, setStatus3] = useState(true);
+  const socket = io.connect(server_url);
 
   /**
    * "status_update" event comes with following data:
@@ -21,21 +20,19 @@ function App() {
 
   useEffect(() => {
     socket.on("status_update", (data) => {
-      let { sensor_id, sensor_status } = data
-      if (typeof (sensor_status) == "string") {
-        sensor_status = sensor_status === "true"
+      let { sensor_id, sensor_status } = data;
+      if (typeof sensor_status == "string") {
+        sensor_status = sensor_status === "true";
       }
-      console.log(data)
+      console.log(data);
       if (sensor_id === "prototype_01") {
-        setStatus1(sensor_status)
-      }
-      else if (sensor_id === "prototype_02") {
-        setStatus2(sensor_status)
-      }
-      else if (sensor_id === "prototype_03") {
-        setStatus3(sensor_status)
+        setStatus1(sensor_status);
+      } else if (sensor_id === "prototype_02") {
+        setStatus2(sensor_status);
+      } else if (sensor_id === "prototype_03") {
+        setStatus3(sensor_status);
       } else {
-        console.log("unexpected sensor id")
+        console.log("unexpected sensor id");
       }
     });
     // client-side
@@ -50,30 +47,24 @@ function App() {
 
   return (
     <div>
+      <Mymap/>
       <div>
         <h1> SpotTroop GbR</h1>
         <table>
-          
-            <tr>
+          <tr>
             <th>Sensor ID</th>
             <th>Status</th>
-            </tr>
-            
-         
-          
-            <tr> 
+          </tr>
+
+          <tr>
             <Status status={status1} name="Sensor 1" />
-
-            </tr>
-            <tr>
-            <Status status={status2} name="Sensor 2"/>
-
-            </tr>
-            <tr>
+          </tr>
+          <tr>
+            <Status status={status2} name="Sensor 2" />
+          </tr>
+          <tr>
             <Status status={status3} name="Sensor 3" />
-
-            </tr>
-          
+          </tr>
         </table>
       </div>
     </div>
