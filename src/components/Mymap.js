@@ -1,8 +1,8 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import "./status.css";
-export const Mymap = ({location, status}) => {
+export const Mymap = ({ location, mstatus }) => {
   return (
     // to run it without error remove location and status and instead of location put [45.4, -75.7]
     <MapContainer center={location} zoom={12} scrollWheelZoom={false}>
@@ -12,17 +12,19 @@ export const Mymap = ({location, status}) => {
       />
       <Marker position={location}>
         <Popup>
-          status  <br />{status}.
+          <p>status  {mstatus}.</p>
         </Popup>
       </Marker>
     </MapContainer>
   );
 };
-Mymap.prototype={
-  location:PropTypes.number,
-  status:PropTypes.bool
+// declear datatype props
+Mymap.propTypes={
+  location:propTypes.number,
+  mstatus:propTypes.string // bugs when this is  in boolean
 }
+// defaul values for props
 Mymap.defaultProps = {
-  location: [45.4, -75.7],
-  status: true
+  location: [45.4, -75.7],// default location 
+  mstatus: "default-true"  // this supposed to boolean
 }
