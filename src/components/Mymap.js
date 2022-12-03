@@ -28,7 +28,7 @@ export const Mymap = ({ location, mstatus }) => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
       
-      <Marker  position={location} icon={mstatus=="true" ? redIcon : greenIcon}>
+      <Marker  position={location} icon={mstatus ? redIcon : greenIcon}>
         <Popup>
           <p>status  {mstatus}.</p>
         </Popup>
@@ -39,10 +39,10 @@ export const Mymap = ({ location, mstatus }) => {
 // declear datatype props
 Mymap.propTypes={
   location:propTypes.number,
-  mstatus:propTypes.string // bugs when this is  in boolean
+  mstatus:propTypes.bool 
 }
 // defaul values for props
 Mymap.defaultProps = {
   location: [45.4, -75.7],// default location 
-  mstatus: "false"  // this supposed to boolean
+  mstatus: true  
 }

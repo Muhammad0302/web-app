@@ -7,7 +7,10 @@ const server_url = "https://spot-api-heroku.herokuapp.com/";
 
 function App() {
   // TODO: change these status to contain location information
-  const [status1, setStatus1] = useState(true);
+  const [status1, setStatus1] = useState({
+    location:[33.6844, 73.0479],
+    mstatus:1
+  });
   const [status2, setStatus2] = useState(false);
   const [status3, setStatus3] = useState(true);
   const socket = io.connect(server_url);
@@ -47,7 +50,7 @@ function App() {
 
   return (
     <div>
-      <Mymap/>
+      <Mymap location={status1.location} mstatus={status1.mstatus}/>
       <div>
         <h1> SpotTroop GbR</h1>
         <table>
@@ -57,7 +60,7 @@ function App() {
           </tr>
 
           <tr>
-            <Status status={status1} name="Sensor 1" />
+            <Status status={status1.status1} name="Sensor 1" />
           </tr>
           <tr>
             <Status status={status2} name="Sensor 2" />
