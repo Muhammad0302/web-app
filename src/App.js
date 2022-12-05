@@ -9,8 +9,40 @@ function App() {
   // TODO: change these status to contain location information
   const [status1, setStatus1] = useState({
     location:[33.6844, 73.0479],
-    mstatus:1
+    mstatus:true
   });
+  // var markers= [
+  //   {
+  //     key:1,
+  //     lat: 30.202536557946495,
+  //     lng: 71.51609153956258,
+      
+      
+  //   },
+  //   {
+  //     key:2,
+  //     lat: 30.20638269979681,
+  //     lng: 71.50489515490405,
+     
+      
+  //   },
+  //   {
+  //     key:4,
+  //     lat: 30.209439776342048,
+  //     lng: 71.51349781072737,
+      
+      
+  //   },
+  //   {
+  //     key:5,
+  //     lat: 30.196027242651713,
+  //     lng: 71.50310051257446,
+     
+      
+  //   }
+  // ]
+
+
   const [status2, setStatus2] = useState(false);
   const [status3, setStatus3] = useState(true);
   const socket = io.connect(server_url);
@@ -50,7 +82,7 @@ function App() {
 
   return (
     <div>
-      <Mymap location={status1.location} mstatus={status1.mstatus}/>
+      <Mymap location={[52.52437, 13.41053]} mstatus={status1.mstatus}/>
       <div>
         <h1> SpotTroop GbR</h1>
         <table>
