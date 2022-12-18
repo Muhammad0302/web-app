@@ -3,50 +3,32 @@ import io from "socket.io-client";
 import React, { useEffect, useState } from "react";
 import Status from "./components/Status";
 import { Mymap } from "./components/Mymap";
-const server_url = "https://spot-api-heroku.herokuapp.com/";
+const server_url = "https://127.0.0.1:3001/";
+
+import Mylocation from "./components/Mylocation";
 
 function App() {
+  // console.log(props);
   // TODO: change these status to contain location information
   const [status1, setStatus1] = useState({
-    location:[33.6844, 73.0479],
-    mstatus:true
+    location: [33.6844, 73.0479],
+    mstatus: true,
   });
-  // var markers= [
-  //   {
-  //     key:1,
-  //     lat: 30.202536557946495,
-  //     lng: 71.51609153956258,
-      
-      
-  //   },
-  //   {
-  //     key:2,
-  //     lat: 30.20638269979681,
-  //     lng: 71.50489515490405,
-     
-      
-  //   },
-  //   {
-  //     key:4,
-  //     lat: 30.209439776342048,
-  //     lng: 71.51349781072737,
-      
-      
-  //   },
-  //   {
-  //     key:5,
-  //     lat: 30.196027242651713,
-  //     lng: 71.50310051257446,
-     
-      
-  //   }
-  // ]
-
+ 
 
   const [status2, setStatus2] = useState(false);
   const [status3, setStatus3] = useState(true);
   const socket = io.connect(server_url);
+  const [lat, setLat] = useState(0);
+  const [lon, setLon] = useState(0);
 
+  // useEffect(() => {
+  //   navigator.geolocation.getCurrentPosition((postion) => {
+      
+  //     setLat(postion.coords.latitude);
+  //     setLon(postion.coords.longitude);
+  //   });})
+  
   /**
    * "status_update" event comes with following data:
    * { "sensor_id": "prototype_01", "sensor_status": true }
@@ -54,6 +36,10 @@ function App() {
    */
 
   useEffect(() => {
+    navigator.geolocation.getCurrentPosition((postion) => {
+      setLat(postion.coords.latitude);
+      setLon(postion.coords.longitude);
+    });
     socket.on("status_update", (data) => {
       let { sensor_id, sensor_status } = data;
       if (typeof sensor_status == "string") {
@@ -79,10 +65,15 @@ function App() {
       console.log("Disconnected" + socket.id); // undefined
     });
   }, [socket]);
+  
 
   return (
     <div>
-      <Mymap location={[52.52437, 13.41053]} mstatus={status1.mstatus}/>
+      {console.log(lat+" apps.js")}
+
+     
+      {lat==0?console.log("map will not be shwoing coz values is zero"):<Mymap location={[52.52437, 13.41053]} mstatus={true} lat={lat!=0?lat:console.log("in app.js lat is zero")} lon={lon!=0?lon:console.log("in app.js lon is zero")}  />}
+     
       <div>
         <h1> SpotTroop GbR</h1>
         <table>
@@ -102,6 +93,7 @@ function App() {
           </tr>
         </table>
       </div>
+      <Mylocation/>
     </div>
   );
 }
