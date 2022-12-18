@@ -16,7 +16,6 @@ export const Mymap = (props) => {
   console.log(props);
   // const [c_lng, setC_lng] = useState(67.005615);
   // const [c_lat, setC_lat] = useState(24.946218);
-  
 
   function LocationMarker() {
     const [position1, setPosition] = useState(null);
@@ -30,12 +29,9 @@ export const Mymap = (props) => {
         // c_lat.current=e.latlng.lat;
         // setC_lat(e.latlng.lat);
         // setC_lng(e.latlng.lng);
-          
-       
       });
     }, [props.lat]);
-    
-   
+
     return position1 === null ? null : (
       <Marker position={position1} icon={icon}></Marker>
     );
@@ -54,9 +50,8 @@ export const Mymap = (props) => {
   const greenIcon = new LeafIcon({
     iconUrl: "http://maps.google.com/mapfiles/kml/paddle/grn-square.png",
   });
- 
+
   return (
-    
     <>
       <MapContainer center={props.location} zoom={12} scrollWheelZoom={false}>
         <TileLayer
@@ -71,22 +66,29 @@ export const Mymap = (props) => {
             icon={venue.mstatus ? redIcon : greenIcon}
           />
         ))}
-        ;{console.log("  lat1 "+ props.lon + "  lng1 " + props.lat+" status1 "+props.mstatus)}
+        ;
+        {console.log(
+          "  lat1 " +
+            props.lon +
+            "  lng1 " +
+            props.lat +
+            " status1 " +
+            props.mstatus
+        )}
         {/* adding routs to our map */}
         <RoutingControl
           position={"topleft"}
           // 67.005615,24.946218
           start={
-            [
-              props.lat!=0?[props.lat,props.lon]:console.log("start ternery")
-            ]
+            props.lat != 0
+              ? [props.lat, props.lon]
+              : console.log("start ternery")
           }
           // start={props.lon!=73.1467503?()=>a():[props.lat,props.lon]}
           end={[52.527025, 13.446139]}
           color={"#2596be"}
         />
       </MapContainer>
-      
     </>
   );
 };
@@ -94,13 +96,13 @@ export const Mymap = (props) => {
 Mymap.propTypes = {
   location: propTypes.number,
   mstatus: propTypes.number,
-  lon:propTypes.number,
-  lat:propTypes.number
+  lon: propTypes.number,
+  lat: propTypes.number,
 };
 // defaul values for props
 Mymap.defaultProps = {
   location: [45.4, -75.7], // default location
   mstatus: 12,
-  lat:0,
-  lon:0
+  lat: 0,
+  lon: 0,
 };
