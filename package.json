@@ -1,5 +1,5 @@
 {
-  "name": "web-app",
+  "name": "",
   "homepage": "https://spottroop.github.io/web-app",
   "version": "0.1.0",
   "private": true,
@@ -15,6 +15,7 @@
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.0",
     "react-leaflet-waypoints": "^1.1.1",
+    "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "socket.io-client": "^4.5.1",
     "web-vitals": "^2.1.4"
@@ -23,6 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "eslint src --ext .js",
+    "lint:fix": "npm run lint -- --fix",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
