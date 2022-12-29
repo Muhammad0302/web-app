@@ -53,25 +53,25 @@ function App() {
         <h1> SpotTroop GbR</h1>
         <table>
           
-            <tr>
+          <tr>
             <th>Sensor ID</th>
             <th>Status</th>
-            </tr>
+          </tr>
             
          
           
-            <tr> 
+          <tr> 
             <Status status={status1} name="Sensor 1" />
 
-            </tr>
-            <tr>
+          </tr>
+          <tr>
             <Status status={status2} name="Sensor 2"/>
 
-            </tr>
-            <tr>
+          </tr>
+          <tr>
             <Status status={status3} name="Sensor 3" />
 
-            </tr>
+          </tr>
           
         </table>
       </div>
