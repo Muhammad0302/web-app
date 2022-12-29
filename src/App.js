@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Status from './components/Status';
 
 
-const server_url = "http://api.spottroop.com/";
+const server_url = "https://api.spottroop.com/";
 
 function App() {
   const [status1, setStatus1] = useState(true)
