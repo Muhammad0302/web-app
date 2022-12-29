@@ -1,5 +1,7 @@
 import React from 'react'
-import './status.css';
+import './status.css'
+import PropTypes from 'prop-types'
+
 
 function Status({ status, name }) {
 
