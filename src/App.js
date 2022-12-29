@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Mymap } from "./components/Mymap";
 import { Link } from "react-router-dom";
 
-
 function App() {
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
