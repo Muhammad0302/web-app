@@ -1,6 +1,8 @@
 import io from "socket.io-client";
 import React, { useEffect, useState } from "react";
 import Status from '../components/Status';
+import { Link } from "react-router-dom";
+
 
 
 const server_url = "https://api.spottroop.com/";
@@ -50,6 +52,7 @@ function LEDs() {
     <div>
       <div>
         <h1> SpotTroop GbR</h1>
+        <Link to="/">MAP Demo</Link>
         <table>
           <tr>
             <th>Sensor ID</th>
