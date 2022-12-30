@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MyMap } from '../components/MyMap';
+import MyMap from '../components/MyMap';
 
 function App() {
   const [lat, setLat] = useState(0);

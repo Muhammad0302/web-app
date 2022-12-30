@@ -1,74 +1,94 @@
 {
-    "venues": [
+    "sensors": [
         {
             
             "geometry": [
                 52.500772,
                 13.472764
-            ]
+            ],
+            "sensorId": "sensor_01",
+            "status": true
         },
         {
             
             "geometry": [
                 52.527025,
                 13.446139
-            ]
+            ],
+            "sensorId": "sensor_02",
+            "status": true
         },
         {
            
             "geometry": [
                 52.486319,
                 13.421437
-            ]
+            ],
+            "sensorId": "sensor_03",
+            "status": true
         },
         {
            
             "geometry": [
                 52.535069,
                 13.452312
-            ]
+            ],
+            "sensorId": "sensor_04",
+            "status": true
         },
         {
           
             "geometry": [
                 52.493039,
                 13.387248
-            ]
+            ],
+            "sensorId": "sensor_05",
+            "status": true
         },
         {
            
             "geometry": [
                 52.510507,
                 13.42022
-            ]
+            ],
+            "sensorId": "sensor_06",
+            "status": true
         },
         {
            
             "geometry": [
                 52.522437,
                 13.409063
-            ]
+            ],
+            "sensorId": "sensor_07",
+            "status": true
         },
         {
        
             "geometry": [
                 52.505188,
                 13.448437
-            ]
+            ],
+            "sensorId": "sensor_08",
+            "status": true
         },
         {
     
             "geometry": [
                 52.500938,
                 13.321438
-            ]
+            ],
+            "sensorId": "sensor_09",
+            "status": true
         },
         {
 
             "geometry": [
                 52.512187,
                 13.425563
-            ]
+            ],
+            "sensorId": "sensor_10",
+            "status": true
         }
     ]
 }

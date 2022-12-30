@@ -7,27 +7,25 @@ import data from '../data.json';
 import RoutingControl from './RoutingControl';
 import icon from './constrains';
 
-export function MyMap(props) {
+function LocationMarker() {
+  const [position1, setPosition] = useState(null);
+
+  const map = useMap();
+  useEffect(() => {
+    map.locate().on('locationfound', (e) => {
+      setPosition(e.latlng);
+      map.flyTo(e.latlng, map.getZoom());
+    });
+  });
+
+  return position1 === null ? null : (
+    <Marker position={position1} icon={icon} />
+  );
+}
+export default function MyMap(props) {
   const { location, lon, lat } = props
 
-  function LocationMarker() {
-    const [position1, setPosition] = useState(null);
-
-    const map = useMap();
-    useEffect(() => {
-      map.locate().on('locationfound', (e) => {
-        setPosition(e.latlng);
-        map.flyTo(e.latlng, map.getZoom());
-      });
-    }, [lat]);
-
-    return position1 === null ? null : (
-      <Marker position={position1} icon={icon} />
-    );
-  }
-
   const LeafIcon = L.Icon.extend({ options: {}, });
-
   const redIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/stop.png', });
   const greenIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/grn-square.png', });
 
@@ -38,25 +36,25 @@ export function MyMap(props) {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
       <LocationMarker />
-      {data.venues.map((venue, index) => (
-        <Marker
-          key={index}
-          position={venue.geometry}
-          icon={venue.mstatus ? redIcon : greenIcon}
+      {data.sensors.map(sensor => {
+        const { sensorId, geometry, status } = sensor
+        return (
+          <Marker
+            key={sensorId}
+            position={geometry}
+            icon={status ? redIcon : greenIcon}
+          />
+        )
+      })}
+      {lat && lon &&
+      (
+        <RoutingControl
+          position="topleft"
+          start={[lat, lon]}
+          end={[52.527025, 13.446139]}
+          color="#2596be"
         />
-      ))}
-      ;
-      <RoutingControl
-        position="topleft"
-        // 67.005615,24.946218
-        start={
-          lat != 0
-            ? [lat, lon]
-            : console.log('start ternery')
-        }
-        end={[52.527025, 13.446139]}
-        color="#2596be"
-      />
+      )}
     </MapContainer>
   );
 }

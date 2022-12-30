@@ -10,7 +10,7 @@ export const distance = () => {
 
   useEffect(() => {
     // finding the distance between location
-    data.venues.map((venue) =>
+    data.sensors.map((venue) =>
       // storing all distance in array
       setDist((current) => [
         ...current,
@@ -21,7 +21,7 @@ export const distance = () => {
       ])
     );
     //storing the lat and lng in array:dist
-    data.venues.map((venue) =>
+    data.sensors.map((venue) =>
       setLocation((current1) => [...current1, venue.geometry[0], venue.geometry[1]])
     );
   }, []);

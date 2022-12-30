@@ -27,6 +27,7 @@ function LEDs() {
       if (typeof (sensorStatus) == 'string') {
         sensorStatus = sensorStatus === 'true'
       }
+      // eslint-disable-next-line no-console
       console.log(data)
 
       if (sensorId === 'prototype_01') {
