@@ -52,7 +52,7 @@ function LEDs() {
     <div>
       <div>
         <h1> SpotTroop GbR</h1>
-        <Link to="/">MAP Demo</Link>
+        <Link to="/web-app">MAP Demo</Link>
         <table>
           <tr>
             <th>Sensor ID</th>

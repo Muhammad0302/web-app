@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div>
-      <Link to="/leds">LEDs Live Demo</Link>
+      <Link to="/web-app/leds">LEDs Live Demo</Link>
       <div>
         {
           lat && lon &&
