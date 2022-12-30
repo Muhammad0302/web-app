@@ -1,9 +1,9 @@
-import "./App.css";
-import React, { useEffect, useState } from "react";
-import { MyMap } from "../components/MyMap";
-import { Link } from "react-router-dom";
+import './App.css';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { MyMap } from '../components/MyMap';
 
-function App() {
+function App() {a
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
 
@@ -14,18 +14,18 @@ function App() {
     });
   }, []);
 
-
   return (
     <div>
       <Link to="/web-app/leds">LEDs Live Demo</Link>
       <div>
         {
-          lat && lon &&
-          <MyMap
-            location={[52.52437, 13.41053]}
-            lat={lat}
-            lon={lon}
-          />
+          lat && lon && (
+            <MyMap
+              location={[52.52437, 13.41053]}
+              lat={lat}
+              lon={lon}
+            />
+          )
         }
       </div>
     </div>
