@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import { Mymap } from "../components/Mymap";
+import { MyMap } from "../components/MyMap";
 import { Link } from "react-router-dom";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       <div>
         {
           lat && lon &&
-          <Mymap
+          <MyMap
             location={[52.52437, 13.41053]}
             mstatus={true}
             lat={lat}
