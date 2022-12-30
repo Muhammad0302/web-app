@@ -23,7 +23,6 @@ function App() {
           lat && lon &&
           <MyMap
             location={[52.52437, 13.41053]}
-            mstatus={true}
             lat={lat}
             lon={lon}
           />
