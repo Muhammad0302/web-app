@@ -9,16 +9,56 @@
     },
     "extends": [
       "eslint:recommended",
-      "plugin:react/recommended"
+      "plugin:react/recommended",
+      "airbnb"
     ],
     "rules": {
-        "indent": [
-            "error",
-            2
-        ],  
-        "react/jsx-equals-spacing": [
-            2,
-            "never"
-        ],
+      "indent": ["error", 2],
+      "react/jsx-equals-spacing": [2, "never"],
+      "no-continue": "off",
+      "space-before-function-paren": "off",
+      "react/prefer-stateless-function": "off",
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/no-danger": "off",
+      "linebreak-style": "off",
+      "global-require": "off",
+      "semi": "off",
+      "arrow-body-style": "off",
+      "no-useless-constructor": "off",
+      "comma-dangle": "off",
+      "react/forbid-prop-types": "off",
+      "no-unused-vars": "warn",
+      "spaced-comment": "warn",
+      "no-trailing-spaces": "off",
+      "max-len": [ 2, 120, 4 ],
+      "prefer-template": "warn",
+      "arrow-parens": "off",
+      "keyword-spacing": "off",
+      "class-methods-use-this": "off",
+      "no-return-assign": "off",
+      "no-param-reassign": "off",
+      "no-else-return": "off",
+      "react/no-children-prop": "off",
+      "no-console": ["warn", { "allow": ["warn", "error"] }],
+      "no-plusplus": "off",
+      "no-restricted-syntax": ["error", "WithStatement"],
+      "no-multi-spaces": ["error", { "ignoreEOLComments": true }],
+      "prefer-destructuring": "off",
+      "operator-linebreak": "off",
+      "object-curly-newline": ["error", { "consistent": true }],
+      "eqeqeq": "off",
+      "import/no-named-as-default-member": "off",
+      "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+      "react/sort-comp": "off",
+      "no-mixed-operators": [
+        "error", { "allowSamePrecedence": true }
+      ],
+      "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" } ],
+      "jsx-a11y/label-has-for": "off",
+      "react/destructuring-assignment": "off",
+      "react/jsx-one-expression-per-line": "off",
+      "react/forbid-foreign-prop-types": "off",
+      "react/no-unused-state": "warn",
+      "no-unreachable": "warn"
     }
 }
