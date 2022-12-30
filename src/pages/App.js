@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import { Mymap } from "./components/Mymap";
+import { Mymap } from "../components/Mymap";
 import { Link } from "react-router-dom";
 
 function App() {
