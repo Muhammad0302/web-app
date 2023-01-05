@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import MyMap from '../components/MyMap';
 
 function App() {
+  
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
 

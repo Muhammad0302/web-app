@@ -51,6 +51,7 @@ MyMap.propTypes = {
 };
 
 MyMap.defaultProps = {
+  
   location: [45.4, -75.7], // default location
   lat: 0,
   lon: 0,
