@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import './status.css';
 import RoutingControl from './RoutingControl';
 import UserCurrentLocation from './UserCurrentLocation';
