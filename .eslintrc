@@ -59,6 +59,7 @@
       "react/jsx-one-expression-per-line": "off",
       "react/forbid-foreign-prop-types": "off",
       "react/no-unused-state": "warn",
-      "no-unreachable": "warn"
+      "no-unreachable": "warn",
+      "react/no-unstable-nested-components": "off"
     }
 }
