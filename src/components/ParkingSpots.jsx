@@ -8,6 +8,14 @@ export default function ParkingSpots() {
   const redIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/stop.png', });
   const greenIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/grn-square.png', });
 
+  const onClickMarker = (e) => {
+    console.log('Marker clicked')
+  }
+
+  const onDblClickMarker = (e) => {
+    console.log('Marker double clicked')
+  }
+
   return data.sensors.map(sensor => {
     const { sensorId, geometry, status } = sensor;
     return (
@@ -15,8 +23,12 @@ export default function ParkingSpots() {
         key={sensorId}
         position={geometry}
         icon={status ? redIcon : greenIcon}
+        eventHandlers={{
+          click: onClickMarker,
+          dblclick: onDblClickMarker,
+        }}
       >
-        <Popup maxWidth={720}>
+        <Popup>
           {sensorId}
         </Popup>
       </Marker>
