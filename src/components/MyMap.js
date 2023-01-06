@@ -1,21 +1,43 @@
-import React from 'react';
-import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import React,{useEffect,useState} from 'react';
+import { MapContainer, Marker, TileLayer ,useMap} from 'react-leaflet';
 import PropTypes from 'prop-types';
 import './status.css';
 import * as L from 'leaflet';
 import data from '../data.json';
+import icon from './constrains';
 import RoutingControl from './RoutingControl';
-import UserCurrentLocationMarker from './UserCurrentLocationMarker';
 
-export default function MyMap(props) {
-  const { location, lon, lat } = props
+
+export default function MyMap() {
+  // const { location, lon, lat } = props
+  const [lat, setLat] = useState();
+  const [lon, setLon] = useState();
+  const [position1, setPosition] = useState(null);
+
+function UserCurrentLocationMarker()
+ {
+    const map = useMap();
+    useEffect(() => {
+      map.locate().on("locationfound",
+      function (e) {
+       setPosition(e.latlng);
+       setLat(e.latlng.lat);
+       setLon(e.latlng.lng);
+       map.flyTo(e.latlng, map.getZoom());
+      });
+    }, [lat]);
+    return position1 === null ? null : (
+      <Marker position={position1} icon={icon}></Marker>
+    );
+  }
+
 
   const LeafIcon = L.Icon.extend({ options: {}, });
   const redIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/stop.png', });
   const greenIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/grn-square.png', });
 
   return (
-    <MapContainer center={location} zoom={12} scrollWheelZoom>
+    <MapContainer center={[52.52437, 13.41053]} zoom={12} scrollWheelZoom>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -45,14 +67,11 @@ export default function MyMap(props) {
 }
 
 MyMap.propTypes = {
-  location: PropTypes.number,
   lon: PropTypes.number,
   lat: PropTypes.number,
 };
 
 MyMap.defaultProps = {
-  
-  location: [45.4, -75.7], // default location
   lat: 0,
   lon: 0,
 };
