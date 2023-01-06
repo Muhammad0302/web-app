@@ -8,7 +8,6 @@ import ParkingSpots from './ParkingSpots';
 export default function MyMap() {
   const [position, setPosition] = useState(null);
 
-
   return (
     <MapContainer center={[52.52437, 13.41053]} zoom={12} scrollWheelZoom>
       <TileLayer
