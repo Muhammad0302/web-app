@@ -7,6 +7,7 @@ export default function UserCurrentLocationHelper({ setPosition }) {
   useEffect(() => {
     map.locate().on('locationfound', (e) => {
       setPosition(e.latlng);
+      map.flyTo(e.latlng, map.getZoom());
     });
   }, [map]);
 
