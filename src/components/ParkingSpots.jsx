@@ -1,6 +1,6 @@
 import * as L from 'leaflet';
 import React from 'react';
-import { Marker } from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
 import data from '../data.json';
 
 export default function ParkingSpots() {
@@ -15,7 +15,11 @@ export default function ParkingSpots() {
         key={sensorId}
         position={geometry}
         icon={status ? redIcon : greenIcon}
-      />
+      >
+        <Popup maxWidth={720}>
+          {sensorId}
+        </Popup>
+      </Marker>
     );
   });
 }
