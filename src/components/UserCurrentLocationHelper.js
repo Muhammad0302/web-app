@@ -8,7 +8,7 @@ export default function UserCurrentLocationHelper({ setPosition }) {
     map.locate().on('locationfound', (e) => {
       setPosition(e.latlng);
     });
-  }, []);
+  }, [map]);
 
   return null
 }
