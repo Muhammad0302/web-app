@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
-import PropTypes from 'prop-types';
 import './status.css';
 import * as L from 'leaflet';
 import data from '../data.json';
 import icon from './constrains';
 import RoutingControl from './RoutingControl';
-
 
 export default function MyMap() {
   // const { location, lon, lat } = props
@@ -17,19 +15,20 @@ export default function MyMap() {
   function UserCurrentLocationMarker() {
     const map = useMap();
     useEffect(() => {
-      map.locate().on("locationfound",
-        function (e) {
+      map.locate().on(
+        'locationfound',
+        (e) => {
           setPosition(e.latlng);
           setLat(e.latlng.lat);
           setLon(e.latlng.lng);
           map.flyTo(e.latlng, map.getZoom());
-        });
+        }
+      );
     }, [lat]);
     return position1 === null ? null : (
-      <Marker position={position1} icon={icon}></Marker>
+      <Marker position={position1} icon={icon} />
     );
   }
-
 
   const LeafIcon = L.Icon.extend({ options: {}, });
   const redIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/stop.png', });
@@ -64,13 +63,3 @@ export default function MyMap() {
     </MapContainer>
   );
 }
-
-MyMap.propTypes = {
-  lon: PropTypes.number,
-  lat: PropTypes.number,
-};
-
-MyMap.defaultProps = {
-  lat: 0,
-  lon: 0,
-};
