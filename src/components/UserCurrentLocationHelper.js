@@ -18,7 +18,5 @@ UserCurrentLocationHelper.propTypes = {
 }
 
 UserCurrentLocationHelper.defaultProps = {
-  setPosition: () => {
-    console.log('Default setPosition called in UserCurrentLocationHelper.')
-  }
+  setPosition: () => { }
 }
