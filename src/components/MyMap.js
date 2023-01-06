@@ -1,5 +1,5 @@
-import React,{useEffect,useState} from 'react';
-import { MapContainer, Marker, TileLayer ,useMap} from 'react-leaflet';
+import React, { useEffect, useState } from 'react';
+import { MapContainer, Marker, TileLayer, useMap } from 'react-leaflet';
 import PropTypes from 'prop-types';
 import './status.css';
 import * as L from 'leaflet';
@@ -14,17 +14,16 @@ export default function MyMap() {
   const [lon, setLon] = useState();
   const [position1, setPosition] = useState(null);
 
-function UserCurrentLocationMarker()
- {
+  function UserCurrentLocationMarker() {
     const map = useMap();
     useEffect(() => {
       map.locate().on("locationfound",
-      function (e) {
-       setPosition(e.latlng);
-       setLat(e.latlng.lat);
-       setLon(e.latlng.lng);
-       map.flyTo(e.latlng, map.getZoom());
-      });
+        function (e) {
+          setPosition(e.latlng);
+          setLat(e.latlng.lat);
+          setLon(e.latlng.lng);
+          map.flyTo(e.latlng, map.getZoom());
+        });
     }, [lat]);
     return position1 === null ? null : (
       <Marker position={position1} icon={icon}></Marker>
@@ -54,14 +53,14 @@ function UserCurrentLocationMarker()
         )
       })}
       {lat && lon &&
-      (
-        <RoutingControl
-          position="topleft"
-          start={[lat, lon]}
-          end={[52.527025, 13.446139]}
-          color="#2596be"
-        />
-      )}
+        (
+          <RoutingControl
+            position="topleft"
+            start={[lat, lon]}
+            end={[52.527025, 13.446139]}
+            color="#2596be"
+          />
+        )}
     </MapContainer>
   );
 }
