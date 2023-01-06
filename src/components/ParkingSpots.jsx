@@ -1,8 +1,7 @@
 import * as L from 'leaflet';
+import React from 'react';
 import { Marker } from 'react-leaflet';
 import data from '../data.json';
-import React from 'react'
-
 
 export default function ParkingSpots() {
   const LeafIcon = L.Icon.extend({ options: {}, });
