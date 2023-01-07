@@ -61,8 +61,16 @@
                 34.007387,
                 71.524695
             ],
-            "sensorId": "peshawar",
+            "sensorId": "peshawar_1",
             "status": true
+        },
+        {
+            "geometry": [
+                33.974835,
+                71.474204
+            ],
+            "sensorId": "peshawar_2",
+            "status": false
         }
     ]
 }

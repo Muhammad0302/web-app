@@ -7,6 +7,7 @@ import ParkingSpots from './ParkingSpots';
 
 export default function MyMap() {
   const [position, setPosition] = useState(null);
+  const [target, setTarget] = useState(null);
 
   return (
     <MapContainer center={[52.52437, 13.41053]} zoom={12} scrollWheelZoom>
@@ -14,13 +15,13 @@ export default function MyMap() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
-      <ParkingSpots />
+      <ParkingSpots setTarget={setTarget} />
       <UserCurrentLocation setPosition={setPosition} position={position} />
-      {position && position.lat && position.lng && (
+      {position && position.lat && position.lng && target && target.lat && target.lng && (
         <RoutingControl
           position="topleft"
           start={[position.lat, position.lng]}
-          end={[52.527025, 13.446139]}
+          end={[target.lat, target.lng]}
           color="#2596be"
         />
       )}

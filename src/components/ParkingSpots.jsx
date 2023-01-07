@@ -3,7 +3,7 @@ import React from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import data from '../data.json';
 
-export default function ParkingSpots() {
+export default function ParkingSpots({ setTarget }) {
   const LeafIcon = L.Icon.extend({ options: {}, });
   const redIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/stop.png', });
   const greenIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/grn-square.png', });
@@ -14,6 +14,7 @@ export default function ParkingSpots() {
 
   const onDblClickMarker = (e) => {
     console.log('Marker double clicked')
+    setTarget(e.latlng)
   }
 
   return data.sensors.map(sensor => {
