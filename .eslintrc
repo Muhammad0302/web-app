@@ -39,7 +39,7 @@
       "no-param-reassign": "off",
       "no-else-return": "off",
       "react/no-children-prop": "off",
-      "no-console": ["warn", { "allow": ["warn", "error"] }],
+      "no-console": "off",
       "no-plusplus": "off",
       "no-restricted-syntax": ["error", "WithStatement"],
       "no-multi-spaces": ["error", { "ignoreEOLComments": true }],

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import _ from 'lodash';
 import io from 'socket.io-client';
-import { __API_HOST__, __API_WEBSOCKET__ } from '../constants'
+import { __API_HOST__ } from '../constants'
 
 export default function ParkingSpots({ setTarget, target }) {
   const LeafIcon = L.Icon.extend({ options: {} });
@@ -18,7 +18,7 @@ export default function ParkingSpots({ setTarget, target }) {
   const socket = io.connect(__API_HOST__)
 
   useEffect(() => {
-    fetch(__API_HOST__ + '/v001/spots')
+    fetch(`${__API_HOST__}/v001/spots`)
       .then(response => {
         if (response.ok) {
           return response.json()
@@ -62,7 +62,7 @@ export default function ParkingSpots({ setTarget, target }) {
         position={[location.lat, location.lng]}
         icon={status ? redIcon : greenIcon}
         eventHandlers={{
-          click: (e) => {
+          click: () => {
             if (target) {
               console.log('Marker clicked');
               setTarget(null);
