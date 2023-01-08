@@ -8,10 +8,14 @@ import { __API_HOST__ } from '../constants'
 export default function ParkingSpots({ setTarget, target }) {
   const LeafIcon = L.Icon.extend({ options: {} });
   const redIcon = new LeafIcon({
-    iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/stop.png',
+    iconUrl: 'https://maps.google.com/mapfiles/kml/paddle/stop.png',
+    iconSize: [64, 64],
+    iconAnchor: [32, 64],
   });
   const greenIcon = new LeafIcon({
-    iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/grn-square.png',
+    iconUrl: 'https://maps.google.com/mapfiles/kml/paddle/grn-square.png',
+    iconSize: [64, 64],
+    iconAnchor: [32, 64],
   });
 
   const [sensors, setSensors] = useState(null)
@@ -64,18 +68,15 @@ export default function ParkingSpots({ setTarget, target }) {
         eventHandlers={{
           click: () => {
             if (target) {
-              console.log('Marker clicked');
+              console.log(`SensorId ${sensorId}`);
               setTarget(null);
             }
           },
           dblclick: (e) => {
-            console.log('Marker double clicked');
             setTarget(e.latlng);
           },
         }}
-      >
-        <Popup>{sensorId}</Popup>
-      </Marker>
+      />
     );
   });
 }
