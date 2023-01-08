@@ -6,9 +6,8 @@ import UserCurrentLocation from './UserCurrentLocation';
 import ParkingSpots from './ParkingSpots';
 
 export default function MyMap() {
-  const [position, setPosition] = useState(null);
+  const [userPosition, setUserPosition] = useState(null);
   const [target, setTarget] = useState(null);
-  const [connectionDone, setConnectionDone] = useState(false);
 
   return (
     <MapContainer center={[52.52437, 13.41053]} zoom={12} scrollWheelZoom>
@@ -16,13 +15,12 @@ export default function MyMap() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
-      <ParkingSpots setTarget={setTarget} setConnectionDone={setConnectionDone} connectionDone={connectionDone} />
-      <UserCurrentLocation setPosition={setPosition} position={position} />
-      {console.log(connectionDone)}
-      {position && target && connectionDone && (
+      <ParkingSpots setTarget={setTarget} target={target} />
+      <UserCurrentLocation setPosition={setUserPosition} position={userPosition} />
+      {userPosition && target && (
         <RoutingControl
           position="topleft"
-          start={[position.lat, position.lng]}
+          start={[userPosition.lat, userPosition.lng]}
           end={[target.lat, target.lng]}
           color="#2596be"
         />

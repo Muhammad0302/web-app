@@ -3,11 +3,7 @@ import React from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import data from '../data.json';
 
-export default function ParkingSpots({
-  setTarget,
-  connectionDone,
-  setConnectionDone,
-}) {
+export default function ParkingSpots({ setTarget, target }) {
   const LeafIcon = L.Icon.extend({ options: {} });
   const redIcon = new LeafIcon({
     iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/stop.png',
@@ -15,20 +11,6 @@ export default function ParkingSpots({
   const greenIcon = new LeafIcon({
     iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/grn-square.png',
   });
-
-  const onClickMarker = (e) => {
-    if (connectionDone) {
-      console.log('Marker clicked');
-      setConnectionDone(false);
-    }
-  };
-
-  const onDblClickMarker = (e) => {
-    console.log('Marker double clicked');
-
-    setTarget(e.latlng);
-    setConnectionDone(true);
-  };
 
   return data.sensors.map((sensor) => {
     const { sensorId, geometry, status } = sensor;
@@ -38,8 +20,16 @@ export default function ParkingSpots({
         position={geometry}
         icon={status ? redIcon : greenIcon}
         eventHandlers={{
-          click: onClickMarker,
-          dblclick: onDblClickMarker,
+          click: (e) => {
+            if (target) {
+              console.log('Marker clicked');
+              setTarget(null);
+            }
+          },
+          dblclick: (e) => {
+            console.log('Marker double clicked');
+            setTarget(e.latlng);
+          },
         }}
       >
         <Popup>{sensorId}</Popup>
