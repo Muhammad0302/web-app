@@ -1,6 +1,6 @@
 import * as L from 'leaflet';
 import React, { useEffect, useState } from 'react';
-import { Marker, Popup } from 'react-leaflet';
+import { Marker } from 'react-leaflet';
 import _ from 'lodash';
 import io from 'socket.io-client';
 import { __API_HOST__ } from '../constants'
