@@ -1,7 +1,7 @@
 {
     "sensors": [
         {
-            "geometry": [
+            "location": [
                 52.500772,
                 13.472764
             ],
@@ -9,7 +9,7 @@
             "status": true
         },
         {
-            "geometry": [
+            "location": [
                 52.527025,
                 13.446139
             ],
@@ -17,7 +17,7 @@
             "status": true
         },
         {
-            "geometry": [
+            "location": [
                 52.486319,
                 13.421437
             ],
@@ -25,7 +25,7 @@
             "status": true
         },
         {
-            "geometry": [
+            "location": [
                 52.535069,
                 13.452312
             ],
@@ -33,7 +33,7 @@
             "status": true
         },
         {
-            "geometry": [
+            "location": [
                 52.493039,
                 13.387248
             ],
@@ -41,7 +41,7 @@
             "status": true
         },
         {
-            "geometry": [
+            "location": [
                 34.191877,
                 72.489413
             ],
@@ -49,7 +49,7 @@
             "status": true
         },
         {
-            "geometry": [
+            "location": [
                 34.224354,
                 72.516976
             ],
@@ -57,7 +57,7 @@
             "status": true
         },
         {
-            "geometry": [
+            "location": [
                 34.007387,
                 71.524695
             ],
@@ -65,7 +65,7 @@
             "status": true
         },
         {
-            "geometry": [
+            "location": [
                 33.974835,
                 71.474204
             ],

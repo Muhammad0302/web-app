@@ -2,12 +2,11 @@ import io from 'socket.io-client';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Status from '../components/Status';
-
-const serverUrl = 'https://api.spottroop.com/';
+import { __API_HOST__ } from '../constants'
 
 function LEDs() {
   const [status1, setStatus1] = useState(true)
-  const socket = io.connect(serverUrl)
+  const socket = io.connect(__API_HOST__)
 
   /**
    * "status_update" event comes with following data:
@@ -59,7 +58,7 @@ function LEDs() {
             <th>Sensor ID</th>
             <th>Status</th>
           </tr>
-          <tr> 
+          <tr>
             <Status status={status1} name="Sensor 1" />
           </tr>
         </table>
