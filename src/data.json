@@ -71,6 +71,14 @@
             ],
             "sensorId": "peshawar_2",
             "status": false
+        },
+        {
+            "geometry": [
+                33.7156,
+                73.0288
+            ],
+            "sensorId": "Bahria University",
+            "status": false
         }
     ]
 }

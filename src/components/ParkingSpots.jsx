@@ -1,23 +1,36 @@
-import * as L from 'leaflet';
-import React from 'react';
-import { Marker, Popup } from 'react-leaflet';
-import data from '../data.json';
+import * as L from "leaflet";
+import React from "react";
+import { Marker, Popup } from "react-leaflet";
+import data from "../data.json";
 
-export default function ParkingSpots({ setTarget }) {
-  const LeafIcon = L.Icon.extend({ options: {}, });
-  const redIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/stop.png', });
-  const greenIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/grn-square.png', });
+export default function ParkingSpots({
+  setTarget,
+  connectionDone,
+  setConnectionDone,
+}) {
+  const LeafIcon = L.Icon.extend({ options: {} });
+  const redIcon = new LeafIcon({
+    iconUrl: "http://maps.google.com/mapfiles/kml/paddle/stop.png",
+  });
+  const greenIcon = new LeafIcon({
+    iconUrl: "http://maps.google.com/mapfiles/kml/paddle/grn-square.png",
+  });
 
   const onClickMarker = (e) => {
-    console.log('Marker clicked')
-  }
+    if (connectionDone) {
+      console.log('Marker clicked');
+      setConnectionDone(false);
+    }
+  };
 
   const onDblClickMarker = (e) => {
-    console.log('Marker double clicked')
-    setTarget(e.latlng)
-  }
+    console.log('Marker double clicked');
 
-  return data.sensors.map(sensor => {
+    setTarget(e.latlng);
+    setConnectionDone(true);
+  };
+
+  return data.sensors.map((sensor) => {
     const { sensorId, geometry, status } = sensor;
     return (
       <Marker
@@ -29,9 +42,7 @@ export default function ParkingSpots({ setTarget }) {
           dblclick: onDblClickMarker,
         }}
       >
-        <Popup>
-          {sensorId}
-        </Popup>
+        <Popup>{sensorId}</Popup>
       </Marker>
     );
   });
