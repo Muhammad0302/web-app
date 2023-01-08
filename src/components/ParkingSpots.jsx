@@ -5,10 +5,14 @@ import _ from 'lodash';
 import io from 'socket.io-client';
 import { __API_HOST__, __API_WEBSOCKET__ } from '../constants'
 
-export default function ParkingSpots({ setTarget }) {
-  const LeafIcon = L.Icon.extend({ options: {}, });
-  const redIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/stop.png', });
-  const greenIcon = new LeafIcon({ iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/grn-square.png', });
+export default function ParkingSpots({ setTarget, target }) {
+  const LeafIcon = L.Icon.extend({ options: {} });
+  const redIcon = new LeafIcon({
+    iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/stop.png',
+  });
+  const greenIcon = new LeafIcon({
+    iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/grn-square.png',
+  });
 
   const [sensors, setSensors] = useState(null)
   const socket = io.connect(__API_HOST__)
@@ -58,13 +62,19 @@ export default function ParkingSpots({ setTarget }) {
         position={[location.lat, location.lng]}
         icon={status ? redIcon : greenIcon}
         eventHandlers={{
-          click: e => { },
-          dblclick: e => { setTarget(e.latlng) },
+          click: (e) => {
+            if (target) {
+              console.log('Marker clicked');
+              setTarget(null);
+            }
+          },
+          dblclick: (e) => {
+            console.log('Marker double clicked');
+            setTarget(e.latlng);
+          },
         }}
       >
-        <Popup>
-          {sensorId}
-        </Popup>
+        <Popup>{sensorId}</Popup>
       </Marker>
     );
   });
