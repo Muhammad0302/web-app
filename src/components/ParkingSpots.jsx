@@ -1,7 +1,7 @@
-import * as L from "leaflet";
-import React from "react";
-import { Marker, Popup } from "react-leaflet";
-import data from "../data.json";
+import * as L from 'leaflet';
+import React from 'react';
+import { Marker, Popup } from 'react-leaflet';
+import data from '../data.json';
 
 export default function ParkingSpots({
   setTarget,
@@ -10,10 +10,10 @@ export default function ParkingSpots({
 }) {
   const LeafIcon = L.Icon.extend({ options: {} });
   const redIcon = new LeafIcon({
-    iconUrl: "http://maps.google.com/mapfiles/kml/paddle/stop.png",
+    iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/stop.png',
   });
   const greenIcon = new LeafIcon({
-    iconUrl: "http://maps.google.com/mapfiles/kml/paddle/grn-square.png",
+    iconUrl: 'http://maps.google.com/mapfiles/kml/paddle/grn-square.png',
   });
 
   const onClickMarker = (e) => {
