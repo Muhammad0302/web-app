@@ -30,7 +30,7 @@ jobs:
       run: |
         git config --global user.name "Deploy gh-pages"
         git config --global user.email "deploy-action@web-app.com"
-        git remote set-url origin https://${GITHUB_TOKEN}@github.com/${repository}
+        git remote set-url origin https://${github_token}@github.com/${repository}
         npm run deploy
       env:
         user_name: 'github-actions[bot]'
