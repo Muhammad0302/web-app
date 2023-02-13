@@ -1,13 +1,14 @@
 import React from 'react'
 import './status.css'
 import PropTypes from 'prop-types'
+import parking from '../assets/parking.png'
 
 function Status({ status, name }) {
   return (
     <>
       <td>{name}</td>
       <td>
-        <div
+        {/* <div
           className="circle-color"
           style={{
             backgroundColor: status ? 'red' : 'green',
@@ -16,10 +17,20 @@ function Status({ status, name }) {
             borderRadius: '100px',
             border: '1px solid black'
           }}
-        />
+        /> */}
+        {status && (
+          <div>
+            <img
+              src={parking}
+              alt="parking car picturee"
+              width={54}
+              height={54}
+            />
+          </div>
+        )}
       </td>
     </>
-  )
+  );
 }
 
 export default Status
