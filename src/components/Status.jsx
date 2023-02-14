@@ -5,31 +5,11 @@ import parking from '../assets/parking.png'
 
 function Status({ status, name }) {
   return (
-    <>
-      <td>{name}</td>
-      <td>
-        {/* <div
-          className="circle-color"
-          style={{
-            backgroundColor: status ? 'red' : 'green',
-            width: '40px',
-            height: '40px',
-            borderRadius: '100px',
-            border: '1px solid black'
-          }}
-        /> */}
-        {status && (
-          <div>
-            <img
-              src={parking}
-              alt="parking car picturee"
-              width={54}
-              height={54}
-            />
-          </div>
-        )}
-      </td>
-    </>
+    status && (
+      <div className="icon">
+        <img src={parking} alt="parking car picturee" width={500} height={540} />
+      </div>
+    )
   );
 }
 

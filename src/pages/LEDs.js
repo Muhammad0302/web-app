@@ -53,15 +53,7 @@ function LEDs() {
       <div>
         <h1> SpotTroop GbR</h1>
         <Link to="/web-app">MAP Demo</Link>
-        <table>
-          <tr>
-            <th>Sensor ID</th>
-            <th>Status</th>
-          </tr>
-          <tr>
-            <Status status={status1} name="Sensor 1" />
-          </tr>
-        </table>
+        <Status status={status1} name="Sensor 1" />
       </div>
     </div>
   );
