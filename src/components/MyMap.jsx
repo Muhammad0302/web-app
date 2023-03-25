@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import './status.css';
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import Search from './SearchLocation';
 import RoutingControl from './RoutingControl';
 import UserCurrentLocation from './UserCurrentLocation';
 import ParkingSpots from './ParkingSpots';
@@ -31,6 +33,7 @@ export default function MyMap() {
             color="#2596be"
           />
         )}
+        <Search provider={new OpenStreetMapProvider()} />
       </MapContainer>
     </>
   );

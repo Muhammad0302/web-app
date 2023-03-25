@@ -35,7 +35,7 @@ function Header() {
               Sign In
             </Link>
           </li>
-          {window.location.href == 'http://localhost:3000/web-app' ? (
+          {/* {window.location.href == 'http://localhost:3000/web-app' ? (
             <li className="nav-link demo">
               <Link to="/web-app/leds">LEDs Live Demo</Link>
             </li>
@@ -43,7 +43,7 @@ function Header() {
             <li className="nav-link demo">
               <Link to="/web-app">MAP Demo</Link>
             </li>
-          )}
+          )} */}
         </ul>
       </nav>
     </header>
