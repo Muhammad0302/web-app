@@ -1,6 +1,5 @@
 import io from 'socket.io-client';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Status from '../components/Status';
 import { __API_HOST__ } from '../constants';
 import Header from '../components/Header';
