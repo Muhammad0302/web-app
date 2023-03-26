@@ -3,7 +3,7 @@ name: Run tests
 on: [push]
 
 jobs:  
-  build:
+  on_push:
 
     runs-on: ubuntu-latest
 
