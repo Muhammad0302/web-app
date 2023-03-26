@@ -1,8 +1,8 @@
 import io from 'socket.io-client';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Status from '../components/Status';
-import { __API_HOST__ } from '../constants'
+import { __API_HOST__ } from '../constants';
+import Header from '../components/Header';
 
 function LEDs() {
   const [status1, setStatus1] = useState(true)
@@ -50,18 +50,10 @@ function LEDs() {
 
   return (
     <div>
+      <Header />
       <div>
-        <h1> SpotTroop GbR</h1>
-        <Link to="/web-app">MAP Demo</Link>
-        <table>
-          <tr>
-            <th>Sensor ID</th>
-            <th>Status</th>
-          </tr>
-          <tr>
-            <Status status={status1} name="Sensor 1" />
-          </tr>
-        </table>
+        {/* <h1> SpotTroop GbR</h1> */}
+        <Status status={status1} />
       </div>
     </div>
   );

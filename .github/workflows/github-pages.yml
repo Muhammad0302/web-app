@@ -8,7 +8,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  on_main:
 
     runs-on: ubuntu-latest
 
