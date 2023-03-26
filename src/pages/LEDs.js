@@ -53,7 +53,7 @@ function LEDs() {
       <Header />
       <div>
         {/* <h1> SpotTroop GbR</h1> */}
-        <Status status={status1} name="Sensor 1" />
+        <Status status={status1} />
       </div>
     </div>
   );
