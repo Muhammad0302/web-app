@@ -12,17 +12,7 @@ function Header() {
       </div>
       <nav>
         <ul className="nav-ul">
-          <li className="nav-link">
-            <Link to="/" className="nav-link">
-              Home
-            </Link>
-          </li>
-          <li className="nav-link">
-            {/* we will be adding correct path sooner just for the time i added "/" */}
-            <Link to="/" className="nav-link">
-              Business
-            </Link>
-          </li>
+         
           <li className="nav-link">
             {/* we will be adding correct path sooner just for the time i added "/" */}
             <Link to="/" className="nav-link">
@@ -35,15 +25,6 @@ function Header() {
               Sign In
             </Link>
           </li>
-          {/* {window.location.href == 'http://localhost:3000/web-app' ? (
-            <li className="nav-link demo">
-              <Link to="/web-app/leds">LEDs Live Demo</Link>
-            </li>
-          ) : (
-            <li className="nav-link demo">
-              <Link to="/web-app">MAP Demo</Link>
-            </li>
-          )} */}
         </ul>
       </nav>
     </header>
