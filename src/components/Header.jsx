@@ -16,7 +16,7 @@ function Header() {
           <li className="nav-link">
             {/* we will be adding correct path sooner just for the time i added "/" */}
             <Link to="/" className="nav-link">
-              FaQ
+              FAQ
             </Link>
           </li>
           <li className="nav-link">
