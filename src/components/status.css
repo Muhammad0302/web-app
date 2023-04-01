@@ -16,7 +16,6 @@ display: flex;
 flex-direction: row;
 list-style: none;
 justify-content: space-between;
-
 width: 134%;
 }
 .nav-ul .nav-link a{
@@ -46,30 +45,7 @@ text-decoration: none;
     font-weight: bold;
     font-size: xx-large;
   }
-  .demo{
-    background: #007bff!important;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 3px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-
-
-  .icon{
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-  }
-  .icon img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  
   /* adding styling to map */
   .leaflet-container {
     width: 100%;
