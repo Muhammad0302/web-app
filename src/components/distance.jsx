@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import L from "leaflet";
-import data from "../data.json";
+import React, { useEffect, useState } from 'react';
+import L from 'leaflet';
+import data from '../data.json';
 // import findNearestLocation from "map-nearest-location";
 export const distance = () => {
   // this will store locations
@@ -18,28 +18,22 @@ export const distance = () => {
         L.latLng(73.1467503, 33.5506718).distanceTo(
           L.latLng(venue.geometry[0], venue.geometry[1])
         ) / 1000,
-      ])
-    );
-    //storing the lat and lng in array:dist
-    data.sensors.map((venue) =>
-      setLocation((current1) => [...current1, venue.geometry[0], venue.geometry[1]])
-    );
+      ]));
+    // storing the lat and lng in array:dist
+    data.sensors.map((venue) => setLocation((current1) => [...current1, venue.geometry[0], venue.geometry[1]]));
   }, []);
   return (
     <div>
       {
         // displaying the locations
         dist.map((distances) => {
-          let minn=Math.min(...dist);
+          const minn = Math.min(...dist);
           // displaying the distances of all locations
           location.map((loctt) => {
-            
             // console.log(minn+" iii "+i+" jjj " +j);
 
-            if(minn===distances)
-            {
-              console.log(" location  "+loctt+"  "+" distance  "+distances);
-              return;
+            if(minn === distances) {
+              console.log(` location  ${loctt}  ` + ` distance  ${distances}`);
             }
           });
         })
