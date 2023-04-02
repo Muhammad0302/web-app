@@ -88,3 +88,8 @@ text-decoration: none;
   right: 20px;
   position: fixed;
 }
+@media (max-width: 600px) {
+  .leaflet-routing-container {
+    display: none;
+  }
+}
