@@ -21,6 +21,7 @@ const createRoutineMachineLayer = ({ position, start, end, color }) => {
         },
       ],
     },
+    createMarker() { return null; },
   });
 
   return instance;
