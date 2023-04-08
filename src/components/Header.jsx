@@ -1,6 +1,6 @@
 import React from 'react'
 import './status.css'
-import logo from '../assets/parking.svg'
+import logo from '../assets/Logo.webp'
 
 function Header() {
   return (
