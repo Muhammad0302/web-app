@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Marker } from 'react-leaflet';
 import _ from 'lodash';
 import io from 'socket.io-client';
-import { __API_HOST__ } from '../constants'
+// import { __API_HOST__ } from '../constants'
 
 export default function ParkingSpots({ setTarget, target }) {
   const LeafIcon = L.Icon.extend({ options: {} });
