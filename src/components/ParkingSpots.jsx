@@ -19,10 +19,10 @@ export default function ParkingSpots({ setTarget, target }) {
   });
 
   const [sensors, setSensors] = useState(null)
-  const socket = io.connect(__API_HOST__)
+  const socket = io.connect('http://localhost:3000')
 
   useEffect(() => {
-    fetch(`${__API_HOST__}/v001/spots`)
+    fetch(`${'http://localhost:3000'}/sensor/getAllSensors`)
       .then(response => {
         if (response.ok) {
           return response.json()
@@ -30,6 +30,7 @@ export default function ParkingSpots({ setTarget, target }) {
         throw response
       })
       .then(data => {
+        console.log(data)
         setSensors(data)
       })
   }, [])
@@ -60,10 +61,11 @@ export default function ParkingSpots({ setTarget, target }) {
 
   return sensors && sensors.map(sensor => {
     const { sensorId, location, status } = sensor;
+    
     return (
       <Marker
         key={sensorId}
-        position={[location.lat, location.lng]}
+        position={[location.coordinates[0], location.coordinates[1]]}
         icon={status ? redIcon : greenIcon}
         eventHandlers={{
           click: () => {
