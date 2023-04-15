@@ -6,8 +6,8 @@ const environments = {
     __API_HOST__: 'https://staging-api.spottroop.com',
   },
   production: {
-    __API_HOST__: 'https://api.spottroop.com',
+    __API_HOST__: 'https://new-api.spottroop.com:3000',
   }
 }
 
-module.exports = environments[process.env.NODE_ENV] || environments.dev
+module.exports = environments.production

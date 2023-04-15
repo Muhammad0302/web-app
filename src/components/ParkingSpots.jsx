@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Marker } from 'react-leaflet';
 import _ from 'lodash';
 import io from 'socket.io-client';
-// import { __API_HOST__ } from '../constants'
+import { __API_HOST__ } from '../constants'
 
 export default function ParkingSpots({ setTarget, target }) {
   const LeafIcon = L.Icon.extend({ options: {} });
@@ -19,10 +19,10 @@ export default function ParkingSpots({ setTarget, target }) {
   });
 
   const [sensors, setSensors] = useState(null)
-  const socket = io.connect('http://localhost:3000')
+  const socket = io.connect(__API_HOST__)
 
   useEffect(() => {
-    fetch(`${'http://localhost:3000'}/sensor/getAllSensors`)
+    fetch(`${__API_HOST__}/sensor/getAllSensors`)
       .then(response => {
         if (response.ok) {
           return response.json()
@@ -66,7 +66,7 @@ export default function ParkingSpots({ setTarget, target }) {
       <Marker
         key={sensorId}
         position={[location.coordinates[0], location.coordinates[1]]}
-        icon={status ? redIcon : greenIcon}
+        icon={status == 'inactive' ? redIcon : greenIcon}
         eventHandlers={{
           click: () => {
             if (target) {
