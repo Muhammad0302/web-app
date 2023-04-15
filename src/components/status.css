@@ -39,6 +39,7 @@ text-decoration: none;
   .Logo img{
     width: 34px;
     height: 34px;
+    background-color: #1b1d1f;
   }
   .Logo p{
     font-family: 'Russo One', sans-serif;
@@ -49,7 +50,7 @@ text-decoration: none;
   /* adding styling to map */
   .leaflet-container {
     width: 100%;
-    height: 92vh;
+    height: calc(100vh - 58px);
     
   }
   .active {
