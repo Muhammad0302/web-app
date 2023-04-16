@@ -6,7 +6,7 @@ const environments = {
     __API_HOST__: 'https://staging-api.spottroop.com',
   },
   production: {
-    __API_HOST__: 'https://new-api.spottroop.com:3000',
+    __API_HOST__: 'https://new-api.spottroop.com',
   }
 }
 
