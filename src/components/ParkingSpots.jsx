@@ -20,7 +20,7 @@ export default function ParkingSpots({ setTarget, target }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log('Get all sensor api called after 10 seconds');
+      console.log('Get all sensor api called after 10 seconds ');
       fetch(`${__API_HOST__}/sensor/getAllSensors`)
         .then(response => {
           if (response.ok) {
